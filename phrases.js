@@ -43,3 +43,63 @@ var phrases =[
   "Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.",
   "Sed consequat, leo eget bibendum sodales, augue velit cursus nunc."
 ];
+////
+// for (var i = 0; i < phrases.length; i++) {
+//   var x = phrases[i];
+//   console.log('----');
+//   console.log(i);
+//   console.log(x); // cia patikrinu koks stringas imamas
+//   console.log(x.length); // isduoda stringo ilgi
+//   if (x.length>phrases[i+1].length) {
+//     console.log('true');
+//   } else {
+//     x=phrases[i+1];
+//   }
+//   console.log(i);
+// }
+// bandymai
+var x;
+var l='';
+function longest () {
+  for (var i = 0; i < phrases.length; i++) {
+    if (phrases[i].length > l) {
+      l = phrases[i].length;
+      x = phrases[i];
+    }
+  }
+  return x;
+}
+longest (phrases);
+console.log(x);
+////
+// var x;
+// var l='';
+// function shortest () {
+//   for (var i = 0; i < phrases.length; i++) {
+//     if (phrases[i].length < l) {
+//       l = phrases[i].length;
+//       x = phrases[i];
+//     }
+//   }
+//   return x;
+// }
+// shortest (phrases);
+// console.log(x);
+////
+// phrases.sort (function(a,b) {
+//   return b.length-a.length;
+// })
+// console.log(phrases[0]);
+// console.log(phrases[phrases.length-1]);
+// console.log(phrases);
+////
+for (let i = 0; i < phrases.length-1; i++) {
+  for (let j = i+1; j < phrases.length; j++) {
+    if (phrases[i].length > phrases[j].length) {
+      let tmp=phrases[i];
+      phrases[i]=phrases[j];
+      phrases[j]=tmp;
+    }
+  }
+}
+console.log(phrases);
